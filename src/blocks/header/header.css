@@ -1,0 +1,21 @@
+.header {
+  display: block;
+  margin: 45px auto 0;
+  border-bottom: 1px solid;
+  border-color: rgba(84, 84, 84, 0.7);
+  padding-bottom: 41px;
+}
+
+@media (max-width: 913px) {
+  .header {
+    padding-left: 17px;
+  }
+}
+
+@media (max-width: 613px) {
+  .header {
+    margin: 28px auto 0;
+    padding-bottom: 32px;
+    padding-left: 27px;
+  }
+}
