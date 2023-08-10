@@ -1,6 +1,6 @@
 import React from 'react'
-import api from '../../utils/Api.js'
-import Card from '../card'
+import api from '../utils/Api.js'
+import Card from './Card.js'
 
 export default function Main({onEditProfile, onAddPlace, onEditAvatar, onCardClick}) {
   const [userName, setUserName] = React.useState(false)
@@ -58,6 +58,7 @@ export default function Main({onEditProfile, onAddPlace, onEditAvatar, onCardCli
             return(<Card
               card = {card}
               onCardClick = {onCardClick}
+              key={card._id}
             />)
           })}
         </section>

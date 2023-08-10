@@ -1,11 +1,9 @@
-// import logo from './logo.svg';
-import Header from './header'
-import Main from './main'
-import Footer from './footer'
-import PopupWithForm from './popupwithform'
-// import ImagePopup from './imagepopup'
+import Header from './Header.js'
+import Main from './Main.js'
+import Footer from './Footer.js'
+import PopupWithForm from './PopupWithForm.js'
+import ImagePopup from './ImagePopup.js'
 import React from 'react'
-import ImagePopup from './imagepopup'
 
 function App() {
   const [isEditProfilePopupOpen, onEditProfile] = React.useState(false)

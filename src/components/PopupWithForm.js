@@ -1,6 +1,4 @@
-import React from 'react'
-
-export default function PopupWithForm ({name, title, submitButtonText, children, isOpened, onClose}) {
+export default function PopupWithForm({name, title, submitButtonText, children, isOpened, onClose}) {
 	return (
 		<div className={isOpened ? `popup popup_opened` : `popup`} id={`${name}`}>  
 			<div className="popup__container popup__container_edit-form">

@@ -1,5 +1,3 @@
-import React from 'react'
-
 export default function ImagePopup({card, onClose}) {
 	return (
 		<div className={(card !== "") ? `popup popup_overlay_show-card popup_opened` : `popup popup_overlay_show-card`} id="show">
