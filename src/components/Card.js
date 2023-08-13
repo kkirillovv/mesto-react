@@ -11,7 +11,7 @@ export default function Card({card, onCardClick}) {
 			<div className="element__block">
 				<h3 className="element__title">{card.name}</h3>
 				<div>
-					<button className="element__like" type="button"></button>
+					<button className={(card.counterLikes > 0) ? `element__like element__like_active` : `element__like`} type="button"></button>
 					<p className="element__like-counter">{card.counterLikes}</p>
 				</div>
 			</div>
