@@ -9,13 +9,13 @@ function App() {
   const [isEditProfilePopupOpen, onEditProfile] = React.useState(false)
   const [isAddPlacePopupOpen, onAddPlace] = React.useState(false)
   const [isEditAvatarPopupOpen, onEditAvatar] = React.useState(false)
-  const [selectedCard, handleCardClick] = React.useState('')
+  const [selectedCard, handleCardClick] = React.useState({name: '', link: ''})
   
   function closeAllPopups() {
     onEditProfile(false)
     onAddPlace(false)
     onEditAvatar(false)
-    handleCardClick('')
+    handleCardClick({name: '', link: ''})
   }
 
   return (
@@ -40,11 +40,11 @@ function App() {
     >
           <fieldset className="edit-form__set">
             <label className="edit-form__field">
-              <input type="text" name="name" className="edit-form__input-text edit-form__input-text_type_name" placeholder="Имя" value="" required minlength="2" maxlength="40" id="name-input" />
+              <input type="text" name="name" className="edit-form__input-text edit-form__input-text_type_name" placeholder="Имя" required minLength="2" maxLength="40" id="name-input" />
               <span className="edit-form__input-error name-input-error"></span>
             </label>
             <label className="edit-form__field">
-              <input type="text" name="about" className="edit-form__input-text edit-form__input-text_type_activity" placeholder="Деятельность" value="" required minlength="2" maxlength="200" id="activity-input" />
+              <input type="text" name="about" className="edit-form__input-text edit-form__input-text_type_activity" placeholder="Деятельность" required minLength="2" maxLength="200" id="activity-input" />
               <span className="edit-form__input-error activity-input-error"></span>
             </label>
           </fieldset>    
@@ -59,7 +59,7 @@ function App() {
     >
           <fieldset className="edit-form__set">
             <label className="edit-form__field">
-              <input type="url" name="avatar" className="edit-form__input-text edit-form__input-text_type_link" placeholder="Cсылка на аватарку" value="" required id="avatar-link-input" />
+              <input type="url" name="avatar" className="edit-form__input-text edit-form__input-text_type_link" placeholder="Cсылка на аватарку" required id="avatar-link-input" />
               <span className="edit-form__input-error avatar-link-input-error"></span>
             </label>
           </fieldset>
@@ -74,11 +74,11 @@ function App() {
     >
           <fieldset className="edit-form__set">
             <label className="edit-form__field">
-              <input type="text" name="name" className="edit-form__input-text edit-form__input-text_type_title" placeholder="Название" value="" required minlength="2" maxlength="30" id="title-input" />
+              <input type="text" name="name" className="edit-form__input-text edit-form__input-text_type_title" placeholder="Название" required minLength="2" maxLength="30" id="title-input" />
               <span className="edit-form__input-error title-input-error"></span>
             </label>
             <label className="edit-form__field">
-              <input type="url" name="link" className="edit-form__input-text edit-form__input-text_type_link" placeholder="Cсылка на картинку" value="" required id="link-input" />
+              <input type="url" name="link" className="edit-form__input-text edit-form__input-text_type_link" placeholder="Cсылка на картинку" required id="link-input" />
               <span className="edit-form__input-error link-input-error"></span>
             </label>
           </fieldset>

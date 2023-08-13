@@ -1,6 +1,6 @@
 export default function ImagePopup({card, onClose}) {
 	return (
-		<div className={(card !== "") ? `popup popup_overlay_show-card popup_opened` : `popup popup_overlay_show-card`} id="show">
+		<div className={(card.link !== '') ? `popup popup_overlay_show-card popup_opened` : `popup popup_overlay_show-card`} id="show">
 			<div className="popup__container popup__container_card-details">
 				<button className="popup__close" type="button" aria-label="Закрыть" onClick={onClose}></button>
 				<article className="card-details">

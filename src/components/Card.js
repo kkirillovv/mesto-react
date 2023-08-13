@@ -5,9 +5,9 @@ export default function Card({card, onCardClick}) {
 	}
 
   return (
-		<article className="element" key={card._id}>
+		<article className="element">
 			<img className="element__photo" src={card.link} alt={card.name} onClick={handledClick} />
-			<button className="element__trash" type="button"></button>
+			{(card.userId === card.owner._id) ? <button className="element__trash" type="button"></button> : ""}
 			<div className="element__block">
 				<h3 className="element__title">{card.name}</h3>
 				<div>

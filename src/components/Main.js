@@ -11,9 +11,6 @@ export default function Main({onEditProfile, onAddPlace, onEditAvatar, onCardCli
   React.useEffect(() => {
     api.getPageData()
       .then(([user, initialCards]) => {
-        console.log(user)
-        console.log(initialCards)
-
         setUserName(user.name)
         setUserDescription(user.about)
         setUserAvatar(user.avatar)
