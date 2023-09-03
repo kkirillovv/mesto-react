@@ -44,19 +44,10 @@ class Api {
     return this._getStatusData(res)
   }
 
-  async putLike (cardId) { // постановка лайка на карточку в БД сервера
+  async changeLike (cardId, status) { // изменяем лайк в карточке в БД сервера
+    const method = (status) ? 'PUT' : 'DELETE'
     const res = await fetch(`${this._url}/cards/${cardId}/likes`, {
-      method: 'PUT',
-      headers: {
-        authorization: this._authorization
-      }
-    })
-    return this._getStatusData(res)
-  }
-
-  async deleteLike (cardId) { // удаление лайка из карточки в БД сервера
-    const res = await fetch(`${this._url}/cards/${cardId}/likes`, {
-      method: 'DELETE',
+      method: `${method}`,
       headers: {
         authorization: this._authorization
       }
