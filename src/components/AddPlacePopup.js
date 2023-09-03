@@ -1,12 +1,12 @@
-import React from 'react'
+import React, { useRef, useEffect } from 'react'
 import PopupWithForm from './PopupWithForm.js'
 
 export default function AddPlacePopup({isOpened, onClose, onAddPlace}) {
 
-  const name = React.useRef()
-  const link = React.useRef()
+  const name = useRef()
+  const link = useRef()
 
-  React.useEffect(() => {
+  useEffect(() => {
     name.current.value = ''
     link.current.value = ''
   }, [isOpened])
@@ -21,9 +21,9 @@ export default function AddPlacePopup({isOpened, onClose, onAddPlace}) {
 
   return (
     <PopupWithForm 
-    name = {'add-photo'}
-    title = {'Новое место'}
-    submitButtonText = {'Сохранить'}
+    name = 'add-photo'
+    title = 'Новое место'
+    submitButtonText = 'Сохранить'
     isOpened = {isOpened}
     onClose = {onClose}
     onSubmit= {handleSubmit}

@@ -10,7 +10,6 @@ import ImagePopup from './ImagePopup.js'
 import React from 'react'
 import api from '../utils/Api.js'
 import {CurrentUserContext} from '../context/CurrentUserContext.js'
-import {CardsContext} from '../context/CardsContext.js'
 
 function App() {
   // стейты попапов
@@ -61,6 +60,9 @@ function App() {
       .then((newCard) => {
         getCardsData((state) => state.map((c) => c._id === card._id ? newCard : c))
       })
+      .catch((err) => {
+        console.error(`Что-то пошло не так: ${err}`)
+      })
   }
 
   function handleUpdateUser (newUserData) {
@@ -68,6 +70,9 @@ function App() {
       .then((user) => {
         getUserInfo(user)
         closeAllPopups()
+      })
+      .catch((err) => {
+        console.error(`Что-то пошло не так: ${err}`)
       })
   }
 
@@ -78,6 +83,9 @@ function App() {
         getUserInfo(user)
         closeAllPopups()
       })
+      .catch((err) => {
+        console.error(`Что-то пошло не так: ${err}`)
+      })
   }
 
   function handleAddPlace (card) {
@@ -85,8 +93,10 @@ function App() {
       .then((newCard) => {
         getCardsData([newCard, ...cards])
         closeAllPopups()
-      }
-      )
+      })
+      .catch((err) => {
+        console.error(`Что-то пошло не так: ${err}`)
+      })
   }
 
   function handleDeletePlace (card) {
@@ -96,33 +106,35 @@ function App() {
       getCardsData((cards) => cards.filter((item) => item._id !== card))
       closeAllPopups()
     })
+    .catch((err) => {
+      console.error(`Что-то пошло не так: ${err}`)
+    })
   }
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
-      <CardsContext.Provider value={cards}>
-        <div className="page">
-          <Header />
-          <Main 
-            onEditProfile = {onEditProfile}
-            onAddPlace = {onAddPlace}
-            onEditAvatar = {onEditAvatar}
-            cards = {cards}            
-            onCardClick = {handleCardClick}
-            onCardLike = {handleCardLike} 
-            onDeleteClick = {onDeletePlace}
-            setCardDelete = {handleCardDelete}            
-          />
-          <Footer />
-        </div>
 
-        <EditProfilePopup isOpened={isEditProfilePopupOpen} onClose={closeAllPopups} onUpdateUser={handleUpdateUser} />
-        <EditAvatarPopup isOpened={isEditAvatarPopupOpen} onClose={closeAllPopups} onUpdateUser={handleUpdateAvatar} />
-        <AddPlacePopup isOpened = {isAddPlacePopupOpen} onClose = {closeAllPopups} onAddPlace={handleAddPlace} />
-        <DeletePlaceConfirmPopup isOpened = {isDeletePlaceConfirmPopupOpen} onClose = {closeAllPopups} onDelete={handleDeletePlace} cardId = {deleteCard} /> 
-        <ImagePopup card = {selectedCard} onClose = {closeAllPopups} />
+      <div className="page">
+        <Header />
+        <Main 
+          onEditProfile = {onEditProfile}
+          onAddPlace = {onAddPlace}
+          onEditAvatar = {onEditAvatar}
+          cards = {cards}            
+          onCardClick = {handleCardClick}
+          onCardLike = {handleCardLike} 
+          onDeleteClick = {onDeletePlace}
+          setCardDelete = {handleCardDelete}            
+        />
+        <Footer />
+      </div>
 
-      </CardsContext.Provider>
+      <EditProfilePopup isOpened={isEditProfilePopupOpen} onClose={closeAllPopups} onUpdateUser={handleUpdateUser} />
+      <EditAvatarPopup isOpened={isEditAvatarPopupOpen} onClose={closeAllPopups} onUpdateUser={handleUpdateAvatar} />
+      <AddPlacePopup isOpened = {isAddPlacePopupOpen} onClose = {closeAllPopups} onAddPlace={handleAddPlace} />
+      <DeletePlaceConfirmPopup isOpened = {isDeletePlaceConfirmPopupOpen} onClose = {closeAllPopups} onDelete={handleDeletePlace} cardId = {deleteCard} /> 
+      <ImagePopup card = {selectedCard} onClose = {closeAllPopups} />
+
     </CurrentUserContext.Provider>
   )
 }

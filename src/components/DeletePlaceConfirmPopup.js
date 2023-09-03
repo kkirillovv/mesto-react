@@ -9,9 +9,9 @@ export default function DeletePlaceConfirmPopup({isOpened, onClose, onDelete, ca
 
   return (
     <PopupWithForm 
-    name = {'delete-photo'}
-    title = {'Вы уверены?'}
-    submitButtonText = {'Да'}
+    name = 'delete-photo'
+    title = 'Вы уверены?'
+    submitButtonText = 'Да'
     isOpened = {isOpened}
     onClose = {onClose}
     onSubmit= {handleSubmit}
